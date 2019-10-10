@@ -1,0 +1,21 @@
+mutation{
+  createTutoria(
+    materia: "Calculo",
+    descripcion:"Tutorias de todos los temas",
+    cupos: 12,
+    idtutor:3,
+    idtoken: "26"
+  ){
+  	id
+  	materia
+  	descripcion
+	}
+}
+
+query {
+  tutorias {
+    id
+    materia
+    descripcion
+  }
+}
