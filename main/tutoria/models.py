@@ -8,3 +8,4 @@ class Tutoria(models.Model):
     cupos = models.SmallIntegerField()
     idtutor = models.SmallIntegerField()
     idtoken = models.TextField(blank=True)
+
