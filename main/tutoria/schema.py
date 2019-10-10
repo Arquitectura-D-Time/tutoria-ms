@@ -3,7 +3,7 @@ from graphene_django import DjangoObjectType
 
 from .models import Tutoria
 
-
+#Traer toda la data
 class LinkType(DjangoObjectType):
     class Meta:
         model = Tutoria
@@ -14,7 +14,7 @@ class Query(graphene.ObjectType):
 
     def resolve_tutorias(self, info, **kwargs):
         return Tutoria.objects.all()
-
+#Crear tutorias
 class CrearTutoria(graphene.Mutation):
     id = graphene.Int()
     materia = graphene.String()
