@@ -25,7 +25,7 @@ SECRET_KEY = 'hi@is(&51_hjk5-z746^n2*@)ix0)oky6z!94@!wr^4=wa7!h5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'graphene_django',
-    'tutoria',
+    'rest_framework',
+    'tutoria'
 ]
 
 MIDDLEWARE = [
@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'HOST': 'db',
+        'HOST': 'tutoria_db',
         'PORT': 5432
     }
 }
@@ -123,7 +123,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-GRAPHENE = {
-    'SCHEMA': 'main.schema.schema',
-}

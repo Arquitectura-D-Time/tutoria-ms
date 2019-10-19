@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  web:
+  tutoria_ms:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -9,8 +9,8 @@ services:
     ports:
       - "5002:8000"
     depends_on: 
-      - db
-  db:
+      - tutoria_db
+  tutoria_db:
     image: postgres
     ports:
       - "3002:5432"
