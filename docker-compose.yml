@@ -3,8 +3,8 @@ version: '3'
 services:
   tutoria_ms:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    #command: python manage.py runserver 0:8000
+    #command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0:8000
     volumes:
       - .:/code
     ports:
