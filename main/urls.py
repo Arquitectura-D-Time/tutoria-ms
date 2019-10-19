@@ -20,7 +20,7 @@ from tutoria import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('tutorias/', views.TutoriaList),
+    path('tutorias/', views.BasicTutoria),
+    path('tutorias/<int:pk>', views.AdvanceTutoria),
 ]
 
