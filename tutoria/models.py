@@ -9,6 +9,4 @@ class Tutoria(models.Model):
     idtutor = models.SmallIntegerField()
     idtoken = models.TextField(blank=True)
 
-    def __str__(self):
-        return self.materia
 

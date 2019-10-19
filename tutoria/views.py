@@ -16,7 +16,7 @@ def TutoriaList(request):
         serializer = TutoriaS(snippets, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
+    if request.method == 'POST':
         serializer = TutoriaS(data=request.data)
         if serializer.is_valid():
             serializer.save()
