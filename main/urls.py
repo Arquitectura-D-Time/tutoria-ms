@@ -21,6 +21,6 @@ from tutoria import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tutorias/', views.TutoriaList.as_view()),
+    path('tutorias/', views.TutoriaList),
 ]
 

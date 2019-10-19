@@ -1,21 +1,24 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from .models import Tutoria
 from .serializers import TutoriaS
 
 # Create your views here.
 
-class TutoriaList(APIView):
+@api_view(['GET', 'POST'])
+def TutoriaList(request):
+   
+    if request.method == 'GET':
+        snippets = Tutoria.objects.all()
+        serializer = TutoriaS(snippets, many=True)
+        return Response(serializer.data)
 
-    def get(self,request):
-        tutos=Tutoria.objects.all()
-        seria=TutoriaS(tutos,many=True)
-        return Response(seria.data)
-        
-    def post(self):
-        pass
+    elif request.method == 'POST':
+        serializer = TutoriaS(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
