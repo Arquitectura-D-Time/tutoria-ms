@@ -8,7 +8,7 @@ from .serializers import TutoriaS
 
 # Create your views here.
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST','DELETE'])
 def BasicTutoria(request):
    
     if request.method == 'GET':
@@ -22,6 +22,10 @@ def BasicTutoria(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method=='DELETE':
+        Tutoria.objects.all().delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def AdvanceTutoria(request, pk):
