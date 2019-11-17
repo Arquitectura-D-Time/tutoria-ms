@@ -22,5 +22,6 @@ from tutoria import views
 urlpatterns = [
     path('tutorias/', views.BasicTutoria),
     path('tutorias/<int:pk>', views.AdvanceTutoria),
+    path('materia/<str:materia>',views.SearchTutoria)
 ]
 

@@ -44,3 +44,14 @@ def AdvanceTutoria(request, pk):
     elif request.method == 'DELETE':
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def SearchTutoria(request, materia):
+    try:
+        snippet = Tutoria.objects.filter(materia=materia)
+    except Tutoria.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = TutoriaS(snippet,many=True)
+        return Response(serializer.data)
