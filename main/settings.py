@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'HOST': 'tutoria_db',
+        'HOST': 'tutorias-db',
         'PORT': 5432
     }
 }
